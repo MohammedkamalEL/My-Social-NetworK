@@ -14,14 +14,14 @@ export default function Login() {
     setisLoading(true);
     setiserror(false);
 
-    const data = {
-      username: formData.get("username"),
-      password: formData.get("password"),
-    };
+    // const data = {
+    //   username: formData.get("username"),
+    //   password: formData.get("password"),
+    // };
     // console.log(data);
 
     axios
-      .post("https://tarmeezacademy.com/api/v1/login", data)
+      .post("https://tarmeezacademy.com/api/v1/login", formData)
       .then((response) => {
         console.log("+++++ Response ", response.data);
         setmessage("Login sucess");
@@ -29,16 +29,15 @@ export default function Login() {
 
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("user-info", JSON.stringify(response.data.user));
+        naveigate("/Posts", { replace: true });
       })
       .catch((error) => {
         console.log("++++ Error", error);
-        setmessage(error.message);
+        setmessage(error.response.data.message);
         setiserror(true);
       })
       .finally(() => {
         setisLoading(false);
-        naveigate("/Posts", { replace: true });
-        
       });
   }
   //   if (isLoading) {
@@ -97,7 +96,7 @@ export default function Login() {
                 type="submit"
               >
                 {/* SIGN UP */}
-                {isLoading ? <span className="">Loading...</span> : "SIGN UP"}
+                {isLoading ? <span className="">Loading...</span> : "Login"}
               </button>
               <h1
                 className={`${

@@ -13,19 +13,21 @@ import Devoloper from "./component/Devoloper.jsx";
 import "react-loading-skeleton/dist/skeleton.css";
 import { SkeletonTheme } from "react-loading-skeleton";
 import ErrorPage from "./component/ErrorPage.jsx";
+import ErrorElment from "./component/ErrorElment.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorElment />,
   },
   {
     path: "/PostDetails/:postId",
     element: <PostDetails />,
   },
   { path: "/Login", element: <Login /> },
-  { path: "/Register", element: <Register /> },
-  { path: "/Posts", element: <Posts /> },
+  { path: "/Register", element: <Register />, errorElement: <ErrorElment /> },
+  { path: "/Posts", element: <Posts />,errorElement: <ErrorElment />  },
   { path: "/Profile", element: <Profile /> },
   { path: "/UserProfile/:userId", element: <UserProfile /> },
   { path: "/Devoloper", element: <Devoloper /> },

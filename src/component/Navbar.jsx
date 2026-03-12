@@ -205,17 +205,14 @@ export default function Navbar() {
                 <button className="flex items-center space-x-2 focus:outline-none  group">
                   <div className="relative">
                     <div className="h-9 w-9 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 overflow-hidden avatar-ring">
-                      <img
-                        src={
-                          Object.keys(user.profile_image).length === 0 ||
-                          isError
-                            ? img
-                            : user.profile_image
-                        }
-                        alt="User"
-                        className="h-full w-full object-cover"
-                        onError={handelImg}
-                      />
+                      {/* {!isError && user?.profile_image && ( */}
+                        <img
+                          src={user?.profile_image|| img}
+                          alt="User"
+                          className="h-full w-full object-cover"
+                          onError={handelImg}
+                        />
+                      {/* // )} */}
                     </div>
                     {/* <span className="absolute bottom-0 right-0   h-2.5 w-2.5 rounded-full bg-green-500 border-2 border-white"></span> */}
                     <FaAngleDown className=" absolute -bottom-2 right-0   h-4 w-4 rounded-full bg-green-500 border-2 border-white" />
@@ -232,16 +229,14 @@ export default function Navbar() {
                   <div className="px-4 py-3 border-b border-gray-100">
                     <div className="flex items-center">
                       <div className="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 overflow-hidden mr-3">
-                        <img
-                          src={
-                            Object.keys(user.profile_image).length === 0 ||
-                            isError
-                              ? img
-                              : user.profile_image
-                          }
-                          alt="User"
-                          className="h-full w-full object-cover"
-                        />
+                        {!isError && user?.profile_image && (
+                          <img
+                            src={img}
+                            alt="User"
+                            className="h-full w-full object-cover"
+                            onError={handelImg}
+                          />
+                        )}
                       </div>
                       <div>
                         <p className="font-medium text-gray-900">
@@ -269,14 +264,14 @@ export default function Navbar() {
                     Account Settings
                   </Link>
                   <Link
-                    to='/Posts'
+                    to="/Posts"
                     className="  px-4 py-2.5 text-gray-700 hover:bg-blue-50 hover:text-blue-600 flex items-center transition-colors duration-200"
                   >
                     <HiHome className="mr-2" />
                     Home
                   </Link>
-                   <Link
-                    to='/Devoloper'
+                  <Link
+                    to="/Devoloper"
                     className="  px-4 py-2.5 text-gray-700 hover:bg-blue-50 hover:text-blue-600 flex items-center transition-colors duration-200"
                   >
                     <MdDeveloperBoard className="mr-2" />

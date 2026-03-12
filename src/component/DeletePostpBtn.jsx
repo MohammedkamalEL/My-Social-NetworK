@@ -6,8 +6,8 @@ export default function DeletePostpBtn({ items }) {
 
   async function handelDeletPosts(id) {
     // console.log(id);
+    setisLoading(true);
     try {
-      setisLoading(true);
       const response = await handelDeletPost(id);
       console.log(response);
       if (response.success) {

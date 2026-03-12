@@ -4,7 +4,7 @@ import AllComment from "./AllComment";
 import img from "../../public/OIP.webp";
 import Navbar from "./Navbar";
 import { addNewComment } from "../api/AddNewComments";
-import { postDetails } from "../api/PostDetails";
+import { postDetails } from "../api/postDetails";
 import Loeader from "./Loeader";
 
 export default function PostDetails() {
